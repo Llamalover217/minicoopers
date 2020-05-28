@@ -1,11 +1,12 @@
 body{
-    background-color: rgb(252, 239, 239);
+    background-color: rgb(255, 255, 255);
     text-align: left;
+    margin: 0;
 }
 /* Add a black background color to the top navigation */
 
 body{
-background-color: rgb(252, 239, 239);
+background-color: rgb(255, 255, 255);
 text-align: left;
 }
 /* Add a black background color to the top navigation */
@@ -38,7 +39,7 @@ text-align: left;
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: rgb(224, 83, 83);
+  background-color: rgb(224, 83, 83); 
   color: white;
   padding: 16px;
   font-size: 16px;

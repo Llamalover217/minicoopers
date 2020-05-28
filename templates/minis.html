@@ -5,25 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Minis</title>
+    <link rel="stylesheet" href="/static/styles.css" media="screen"/>
 </head>
 <body>
     <!-- This is the navbar at the top of the website -->
-    <link rel="stylesheet" href="static/styles.css" media="screen"/>
     <div class="topnav">
-        <a href="home">Home Page</a>
-        <a class="active" href="mini">Minis Page</a>
-        <a href="bmw">BMW Page</a>
+        <a href="/home">Home Page</a>
+        <a class="active" href="/mini">Minis Page</a>
+        <a href="/bmw">BMW Page</a>
     </div>
 
-    <!-- This is where the rest of the page starts -->
+    <!-- This is where the rest of the page starts --> 
     <h1>Minis Page</h1>
+
+    <!-- This is the dropdown menu with all the different minis -->
     <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
+        <button class="dropbtn">Different Minis</button>
         <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            {% for mini in minis %}
+                <a href="/mini/{{ mini.Car_ID }} ">{{ mini.CarType }}</a>
+            {% endfor %}
         </div>
     </div>
+
+    <!-- Shows info about the mini they choose -->
+    {% block mini %}
+        
+    {% endblock %}
+    
 </body>
 </html>
