@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Minis</title>
-    <link rel="stylesheet" href="/static/styles.css" media="screen"/>
+    <link rel="stylesheet" href="/static/styles.css" media="screen" />
 </head>
+
 <body>
     <!-- This is the navbar at the top of the website -->
     <div class="topnav">
@@ -15,23 +17,47 @@
         <a href="/bmw">BMW Page</a>
     </div>
 
-    <!-- This is where the rest of the page starts --> 
+    <!-- This is where the rest of the page starts -->
     <h1>Minis Page</h1>
 
     <!-- This is the dropdown menu with all the different minis -->
     <div class="dropdown">
-        <button class="dropbtn">Different Minis</button>
+        <button class="dropbtn">Minis</button>
         <div class="dropdown-content">
             {% for mini in minis %}
-                <a href="/mini/{{ mini.Car_ID }} ">{{ mini.CarType }}</a>
+            <a onclick="compareMini({{ mini.Car_ID }}, 1)">{{ mini.CarType }}</a>
             {% endfor %}
         </div>
     </div>
-
+    <div class="dropdown">
+        <button class="dropbtn">Minis</button>
+        <div class="dropdown-content">
+            {% for mini in minis %}
+            <a onclick="compareMini({{ mini.Car_ID }}, 2)">{{ mini.CarType }}</a>
+            {% endfor %}
+        </div>
+    </div>
     <!-- Shows info about the mini they choose -->
-    {% block mini %}
-        
-    {% endblock %}
-    
+    <div class="content">
+        <div id="section-1"></div>
+        <div id="section-2"></div>
+    </div>
+    <script>
+        function compareMini(id, section) {
+            var section_div = document.querySelector(`#section-${section}`);
+            // section_div.innerHTML = id;
+            // console.log(id, section, section_div);
+            var xhttp = new XMLHttpRequest(); // new xmlrequst object
+            xhttp.onreadystatechange = function () { // function for when the url responds
+                if (this.readyState == 4 && this.status == 200) { // check if the response was successfull 
+                    section_div.innerHTML = this.responseText; 
+                }
+            };
+            xhttp.open("GET", `/mini_api/${id}`, true);  
+            xhttp.send();
+        }
+    </script>
+
 </body>
+
 </html>

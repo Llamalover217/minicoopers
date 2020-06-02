@@ -50,6 +50,12 @@ def mini(id=None):
         return render_template('mini_chosen.html', minis=minis, mini=mini)
     return render_template('minis.html', minis=minis)
 
+
+@app.route('/mini_api/<int:id>')
+def mini_api(id):
+    mini = Mini.query.get_or_404(id)
+    return render_template('mini_chosen.html', mini=mini)
+
 @app.route('/bmw', methods=['GET', 'POST'])
 def bmw():
     return render_template('BMW.html')
