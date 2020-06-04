@@ -20,21 +20,26 @@
     <!-- This is where the rest of the page starts -->
     <h1>Minis Page</h1>
 
+    <h3>Press the buttons and choose a car on each button to compare them</h3>
     <!-- This is the dropdown menu with all the different minis -->
-    <div class="dropdown">
-        <button class="dropbtn">Minis</button>
-        <div class="dropdown-content">
-            {% for mini in minis %}
-            <a onclick="compareMini({{ mini.Car_ID }}, 1)">{{ mini.CarType }}</a>
-            {% endfor %}
+    <div class="dropdown-group">
+        <div class="dropdown">
+            <button class="dropbtn">Mini</button>
+            <div class="dropdown-content">
+                <!-- when you click on a car, it will get the info for that car -->
+                {% for mini in minis %}
+                <a onclick="compareMini({{ mini.Car_ID }}, 1)">{{ mini.CarType }}</a>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn">Minis</button>
-        <div class="dropdown-content">
-            {% for mini in minis %}
-            <a onclick="compareMini({{ mini.Car_ID }}, 2)">{{ mini.CarType }}</a>
-            {% endfor %}
+        <div class="dropdown">
+            <button class="dropbtn">Compared with mini</button>
+            <div class="dropdown-content">
+                <!-- when you click on a car, it will get the info for that car -->
+                {% for mini in minis %}
+                <a onclick="compareMini({{ mini.Car_ID }}, 2)">{{ mini.CarType }}</a>
+                {% endfor %}
+            </div>
         </div>
     </div>
     <!-- Shows info about the mini they choose -->
@@ -50,10 +55,10 @@
             var xhttp = new XMLHttpRequest(); // new xmlrequst object
             xhttp.onreadystatechange = function () { // function for when the url responds
                 if (this.readyState == 4 && this.status == 200) { // check if the response was successfull 
-                    section_div.innerHTML = this.responseText; 
+                    section_div.innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", `/mini_api/${id}`, true);  
+            xhttp.open("GET", `/mini_api/${id}`, true);
             xhttp.send();
         }
     </script>
