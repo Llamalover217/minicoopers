@@ -24,6 +24,7 @@ class Mini(db.Model):
     Emissions = db.Column(db.Text)
     Fuel = db.Column(db.Integer)
     Speed = db.Column(db.Integer)
+    Image = db.Column(db.Text)
 
 class Order(db.Model):
     __tablename__ = 'Order'
@@ -49,7 +50,6 @@ def mini(id=None):
         mini = Mini.query.get_or_404(id)
         return render_template('mini_chosen.html', minis=minis, mini=mini)
     return render_template('minis.html', minis=minis)
-
 
 @app.route('/mini_api/<int:id>')
 def mini_api(id):

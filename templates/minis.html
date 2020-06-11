@@ -52,7 +52,7 @@
             var section_div = document.querySelector(`#section-${section}`);
             // section_div.innerHTML = id;
             // console.log(id, section, section_div);
-            var xhttp = new XMLHttpRequest(); // new xmlrequst object
+            var xhttp = new XMLHttpRequest(); // new xmlrequest object
             xhttp.onreadystatechange = function () { // function for when the url responds
                 if (this.readyState == 4 && this.status == 200) { // check if the response was successfull 
                     section_div.innerHTML = this.responseText;
