@@ -4,6 +4,9 @@ body{
     margin: 0;
 }
 /* Add a black background color to the top navigation */
+.rest {
+  margin: 10px
+}
 
 body{
 background-color: rgb(255, 255, 255);
@@ -13,6 +16,7 @@ text-align: left;
 .topnav {
     background-color: #333;
     overflow: hidden;
+    margin: 0;
 }
 
 /* Style the links inside the navigation bar */
