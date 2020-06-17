@@ -8,15 +8,14 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
 
 db = SQLAlchemy(app)
 
-class Customer(db.Model):
-    """This is the Customor Model it represents the the Customor table in the database :)"""
+class Customer(db.Model):   # This is the Customer Model it represents the Customer table in the database :)
     __tablename__ = 'Customer'
 
     Customer_ID = db.Column(db.Integer, primary_key=True)
     FirstName = db.Column(db.Text)
     LastName = db.Column(db.Text)
 
-class Mini(db.Model):
+class Mini(db.Model):   # This is the Mini model it represents the Mini table in the database
     __tablename__ = 'Mini'
 
     Car_ID = db.Column(db.Integer, primary_key=True)
@@ -27,7 +26,7 @@ class Mini(db.Model):
     Speed = db.Column(db.Integer)
     Image = db.Column(db.Text)
 
-class Order(db.Model):
+class Order(db.Model):   # This is the Order model it represents the Order table in the database
     __tablename__ = 'Order'
 
     Order_number = db.Column(db.Integer, primary_key=True)
