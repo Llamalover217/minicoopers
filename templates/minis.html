@@ -22,7 +22,7 @@
         <!-- This is the dropdown menu with all the different minis -->
         <div class="dropdown-group">
             <div class="dropdown">
-                <button class="dropbtn">Mini</button>
+                <button class="dropbtn">Compare Mini</button>
                 <div class="dropdown-content">
                     <!-- when you click on a car, it will get the info for that car -->
                     {% for mini in minis %}
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <button class="dropbtn">Compared with mini</button>
+                <button class="dropbtn">With Mini</button>
                 <div class="dropdown-content">
                     <!-- when you click on a car, it will get the info for that car -->
                     {% for mini in minis %}
@@ -48,8 +48,6 @@
         <script>
             function compareMini(id, section) {
                 var section_div = document.querySelector(`#section-${section}`);
-                // section_div.innerHTML = id;
-                // console.log(id, section, section_div);
                 var xhttp = new XMLHttpRequest(); // new xmlrequest object
                 xhttp.onreadystatechange = function () { // function for when the url responds
                     if (this.readyState == 4 && this.status == 200) { // check if the response was successfull 
