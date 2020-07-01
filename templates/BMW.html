@@ -14,7 +14,9 @@
         <a href="/mini">Minis Page</a>
         <a class="active" href="/bmw">BMW Page</a>
     </div>
+
     <div class = "rest"> <!-- This is just to be able to style the page without the navbar -->
+        
         <!-- This is where the rest of the page starts -->
         <h1>BMWs Page</h1>
         <h3>Press the buttons and choose a car on each button to compare them</h3>
@@ -24,7 +26,7 @@
                 <div class="dropdown-content">
                     <!-- when you click on a car, it will get the info for that car -->
                     {% for bmw in bmws %}
-                    <a onclick="compareBmw({{ bmw.carID }}, 1)">{{ bmw.carType }}</a>
+                        <a onclick="compareBmw({{ bmw.carID }}, 1);">{{ bmw.carType }}</a>
                     {% endfor %}
                 </div>
             </div>
@@ -33,11 +35,12 @@
                 <div class="dropdown-content">
                     <!-- when you click on a car, it will get the info for that car -->
                     {% for bmw in bmws %}
-                    <a onclick="compareBmw({{ bmw.carID }}, 2)">{{ bmw.carType }}</a>
+                        <a onclick="compareBmw({{ bmw.carID }}, 2);">{{ bmw.carType }}</a>
                     {% endfor %}
                 </div>
             </div>
         </div>
+        
         <!-- Shows info about the mini they choose -->
         <div class="content">
             <div id="section-1"></div>

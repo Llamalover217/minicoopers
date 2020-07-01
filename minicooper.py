@@ -52,14 +52,14 @@ class Bmw(db.Model):
     fuel = db.Column(db.Text)
     emissions = db.Column(db.Text)
     power = db.Column(db.Text)
-    electricRange = db.Column(db.Text)
+    topSpeed = db.Column(db.Text)
 
 
 @app.route('/')
 @app.route('/home')
 def home():    # defines the home page
     # it tells the computer what the file is called that it needs to bring up
-    return render_template('home.html')
+    return render_template('home.html', bmws=Bmw.query.all(), minis=Mini.query.all())
 
 
 @app.route('/mini')
