@@ -4,9 +4,27 @@ body{  /* Styles the body */
   margin: 0; /* makes the navbar have a margin of 0 */
 }
 
-.dark-mode {
-  background-color: rgb(34, 34, 34);
-  color: rgb(230, 230, 230);
+@media (prefers-color-scheme: dark) {
+  /* Dark theme styles go here */
+  body{
+    background-color: rgb(34, 34, 34);
+    color: rgb(230, 230, 230);
+  }
+  .topnav {
+    /* all your styles for dark mode here */
+    background-color: rgb(26, 26, 26);
+    color: rgb(230, 230, 230);
+  }
+  .topnav a.active {
+    /* all your styles for dark mode here */
+    background-color: rgb(141, 49, 49);
+    color: rgb(255, 255, 255);
+  }
+  .dropbtn {
+    /* all your styles for dark mode here */
+    background-color: rgb(141, 49, 49);
+    color: rgb(255, 255, 255);
+  }
 }
 
 .rest { /* gives the rest of the page a margin of 10px */

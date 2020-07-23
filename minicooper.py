@@ -9,7 +9,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
 
 db = SQLAlchemy(app)
 
-
 # This is the Customer Model it represents the Customer table in the database :)
 class Customer(db.Model):
     __tablename__ = 'Customer'
