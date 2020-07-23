@@ -4,6 +4,11 @@ body{  /* Styles the body */
   margin: 0; /* makes the navbar have a margin of 0 */
 }
 
+.dark-mode {
+  background-color: rgb(34, 34, 34);
+  color: rgb(230, 230, 230);
+}
+
 .rest { /* gives the rest of the page a margin of 10px */
   margin: 10px
 }
@@ -99,3 +104,4 @@ justify-content: space-around;
 .content img {
   width: 100%;
 }
+
