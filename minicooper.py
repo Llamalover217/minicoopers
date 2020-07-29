@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 # DATABASE = 'database.db'
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
-
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 # This is the Customer Model it represents the Customer table in the database :)
@@ -28,7 +28,7 @@ class Mini(db.Model):   # This is the Mini model it represents the Mini table in
     Speed = db.Column(db.Integer)
     Image = db.Column(db.Text)
 
-
+    
 class Order(db.Model):   # This is the Order model it represents the Order table in the database
     __tablename__ = 'Order'
 
