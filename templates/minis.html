@@ -2,6 +2,7 @@
       and anything else all pages need -->
 {% extends 'layout.html' %} 
 
+<!-- shows what is only on this page -->
 {% block main %}
 <!-- This is where the rest of the page starts -->
 <h1>Minis Page</h1>
@@ -14,6 +15,7 @@
     <div class="dropdown-content">
       <!-- when you click on a car, it will get the info for that car -->
       {% for mini in minis %}
+      <!-- 1st section -->
       <a onclick="compareMini({{ mini.Car_ID }}, 1)">{{ mini.CarType }}</a>
       {% endfor %}
     </div>
@@ -23,6 +25,7 @@
     <div class="dropdown-content">
       <!-- when you click on a car, it will get the info for that car -->
       {% for mini in minis %}
+      <!-- 2nd section -->
       <a onclick="compareMini({{ mini.Car_ID }}, 2)">{{ mini.CarType }}</a>
       {% endfor %}
     </div>
@@ -34,13 +37,18 @@
   <div id="section-1"></div>
   <div id="section-2"></div>
 </div>
-
 {% endblock main %}
 
+<!-- anything in javascript -->
 {% block script %}
+<!-- super keeps what is in block script on the layout template -->
 {{ super() }}
 <script>
+  // function to get the info for minis 
   function compareMini(id, section) {
+    // puts mini on the section it is supposed to be put on
+    // button 1 pressed - section 1
+    // button 2 pressed - section 2
     var section_div = document.querySelector(`#section-${section}`);
     var xhttp = new XMLHttpRequest(); // new xmlrequest object
     xhttp.onreadystatechange = function() {
@@ -50,7 +58,9 @@
         section_div.innerHTML = this.responseText;
       }
     };
+    // figures out what mini the user has chosen then gets the info from the database for the mini chosen
     xhttp.open("GET", `/mini_api/${id}`, true);
+    // shows info of the mini chosen on page
     xhttp.send();
   }
 </script>

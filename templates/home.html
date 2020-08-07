@@ -2,9 +2,8 @@
       and anything else all pages need -->
 {% extends 'layout.html' %} 
 
+<!-- shows what is only on this page -->
 {% block main %}
-<!-- This is just to be able to style the page without the navbar mostly for the margin -->
-<!-- This is where the rest of the page starts -->
 <h1>Home Page</h1>
 <h3>The ONLY correct opinion:</h3>
 <p>
@@ -40,11 +39,14 @@
 </div>
 {% endblock main %} 
 
-
+<!-- anything in javascript on this page -->
 {% block script %}
+<!-- super keeps what is in block script on the layout template -->
 {{ super() }}
 <script>
+  // function to get the mini info for what is chosen
   function compareMini(id, section) {
+    // sets mini to show on section 1 (left side of screen)
     var section_div = document.querySelector(`#section-${1}`);
     var xhttp = new XMLHttpRequest(); // new xmlrequest object
     xhttp.onreadystatechange = function() {
@@ -54,10 +56,14 @@
         section_div.innerHTML = this.responseText;
       }
     };
+    //figures out what mini the user has chosen then gets the info from the database for the mini chosen
     xhttp.open("GET", `/mini_api/${id}`, true);
+    // shows info of the mini chosen on page
     xhttp.send();
   }
+  // function to get the bmw info for what is chosen
   function compareBmw(id, section) {
+    // sets bmw to show on section 2 (right side of screen)
     var section_div = document.querySelector(`#section-${2}`);
     var xhttp = new XMLHttpRequest(); // new xmlrequest object
     xhttp.onreadystatechange = function() {
@@ -67,7 +73,9 @@
         section_div.innerHTML = this.responseText;
       }
     };
+    // gets the info from the database for the bmw chosen
     xhttp.open("GET", `/bmw_api/${id}`, true);
+    // shows info of the bmw chosen on page
     xhttp.send();
   }
 </script>

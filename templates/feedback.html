@@ -2,7 +2,9 @@
       and anything else all pages need -->
 {% extends 'layout.html' %} 
 
+<!-- shows what is only on this page -->
 {% block main %} 
+<!-- comment section -->
 <form method="POST">
   <label for="fname">First name:</label>
   <input type="text" id="fname" name="fname"><br><br>
@@ -11,6 +13,7 @@
   <input type="submit" value="Submit">
 </form>
 </div>
+<!-- shows comments -->
 <h2>Comments:</h2>
 {% for comment in feedback %}
 <p>

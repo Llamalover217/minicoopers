@@ -2,16 +2,18 @@
       and anything else all pages need -->
 {% extends 'layout.html' %}
 
+<!-- shows what is only on this page -->
 {% block main %}
-<!-- This is where the rest of the page starts -->
 <h1>BMWs Page</h1>
 <h3>Press the buttons and choose a car on each button to compare them</h3>
+<!-- dropdown for cars -->
 <div class="dropdown-group">
   <div class="dropdown">
     <button class="dropbtn">Compare BMW</button>
     <div class="dropdown-content">
       <!-- when you click on a car, it will get the info for that car -->
       {% for bmw in bmws %}
+      <!-- 1st section -->
       <a onclick="compareBmw({{ bmw.carID }}, 1);">{{ bmw.carType }}</a>
       {% endfor %}
     </div>
@@ -21,6 +23,7 @@
     <div class="dropdown-content">
       <!-- when you click on a car, it will get the info for that car -->
       {% for bmw in bmws %}
+      <!-- 2nd section -->
       <a onclick="compareBmw({{ bmw.carID }}, 2);">{{ bmw.carType }}</a>
       {% endfor %}
     </div>
@@ -32,12 +35,14 @@
   <div id="section-1"></div>
   <div id="section-2"></div>
 </div>
-
 {% endblock main %}
 
+<!-- anything in javascript -->
 {% block script %}
+<!-- super keeps what is in block script on the layout template -->
 {{ super() }}
 <script>
+  // function to get the info for BMWs
   function compareBmw(id, section) {
     var section_div = document.querySelector(`#section-${section}`);
     var xhttp = new XMLHttpRequest(); // new xmlrequest object
@@ -48,7 +53,9 @@
         section_div.innerHTML = this.responseText;
       }
     };
+    // figures out what bmw the user has chosen then gets the info from the database for the bmw chosen
     xhttp.open("GET", `/bmw_api/${id}`, true);
+    // shows info of the bmw chosen on page
     xhttp.send();
   }
 </script>
