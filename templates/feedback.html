@@ -1,0 +1,21 @@
+<!-- layout includes topnav bar, dark mode
+      and anything else all pages need -->
+{% extends 'layout.html' %} 
+
+{% block main %} 
+<form method="POST">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="comment">Comments:</label>
+  <input type="text" id="comment" name="comment"><br><br>
+  <input type="submit" value="Submit">
+</form>
+</div>
+<h2>Comments:</h2>
+{% for comment in feedback %}
+<p>
+{{ comment.customerName }}:
+{{ comment.comment }}
+</p>
+{% endfor %}
+{% endblock main %}

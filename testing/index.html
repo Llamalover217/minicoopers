@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            --text: #000000;
+            --bg-main: #ffffff;
+            --bg-second: blue;
+            background: var(--bg-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: var(--text);
+        }
+
+        body.dark {
+            --bg-second: red;
+            --text: #ffffff;
+            --bg-main: #000000;
+        }
+
+        div {
+            background: var(--bg-second)
+        }
+
+        /* div */
+     </style>
+</head>
+<body>
+    <div>
+        <h1>
+            <button onclick="document.querySelector('body').classList.toggle('dark')">Dark togggleee</button>
+           I am text 
+        </h1>
+    </div>
+</body>
+</html>

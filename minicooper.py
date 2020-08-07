@@ -53,6 +53,13 @@ class Bmw(db.Model):
     power = db.Column(db.Text)
     topSpeed = db.Column(db.Text)
 
+class Comment(db.Model):
+    __tablename__ = 'comments'
+
+    commentID = db.Column('Comment_ID', db.Integer, primary_key=True)
+    customerName = db.Column('Customer_name', db.Text)
+    comment = db.Column(db.Text)
+
 
 @app.route('/')
 @app.route('/home')
@@ -84,6 +91,15 @@ def bmw_api(id):       # defines the mini car choosen
 def bmw():      # defines the bmw page
     bmws = Bmw.query.all()
     return render_template('BMW.html', bmws=bmws)
+
+@app.route('/feedback', methods=["GET", "POST"])
+def feedback():
+    if request.method == "POST":
+        new_comment = Comment(customerName=request.form['fname'], comment=request.form['comment'])
+        db.session.add(new_comment)
+        db.session.commit()
+        return redirect('/feedback')
+    return render_template('feedback.html', feedback=Comment.query.all())
 
 
 if __name__ == '__main__':    # this runs the application

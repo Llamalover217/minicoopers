@@ -1,69 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Minis</title>
-    <link rel="stylesheet" href="/static/styles.css" media="screen" />
-</head>
+<!-- layout includes topnav bar, dark mode
+      and anything else all pages need -->
+{% extends 'layout.html' %} 
 
-<body>
-    <!-- This is the navbar at the top of the website -->
-    <div class="topnav">
-        <a href="/home">Home Page</a>
-        <a class="active" href="/mini">Minis Page</a>
-        <a href="/bmw">BMW Page</a>
+{% block main %}
+<!-- This is where the rest of the page starts -->
+<h1>Minis Page</h1>
+<h3>Press the buttons and choose a car on each button to compare them</h3>
+
+<!-- This is the dropdown menu with all the different minis -->
+<div class="dropdown-group">
+  <div class="dropdown">
+    <button class="dropbtn">Compare Mini</button>
+    <div class="dropdown-content">
+      <!-- when you click on a car, it will get the info for that car -->
+      {% for mini in minis %}
+      <a onclick="compareMini({{ mini.Car_ID }}, 1)">{{ mini.CarType }}</a>
+      {% endfor %}
     </div>
-
-    
-    <div class = "rest"> <!-- This is just to be able to style the page without the navbar -->
-        
-        <!-- This is where the rest of the page starts -->
-        <h1>Minis Page</h1>
-        <h3>Press the buttons and choose a car on each button to compare them</h3>
-
-        <!-- This is the dropdown menu with all the different minis -->
-        <div class="dropdown-group">
-            <div class="dropdown">
-                <button class="dropbtn">Compare Mini</button>
-                <div class="dropdown-content">
-                    <!-- when you click on a car, it will get the info for that car -->
-                    {% for mini in minis %}
-                    <a onclick="compareMini({{ mini.Car_ID }}, 1)">{{ mini.CarType }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">With Mini</button>
-                <div class="dropdown-content">
-                    <!-- when you click on a car, it will get the info for that car -->
-                    {% for mini in minis %}
-                    <a onclick="compareMini({{ mini.Car_ID }}, 2)">{{ mini.CarType }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-
-        <!-- Shows info about the mini they choose -->
-        <div class="content">
-            <div id="section-1"></div>
-            <div id="section-2"></div>
-        </div>
-        <script>
-            function compareMini(id, section) {
-                var section_div = document.querySelector(`#section-${section}`);
-                var xhttp = new XMLHttpRequest(); // new xmlrequest object
-                xhttp.onreadystatechange = function () { // function for when the url responds
-                    if (this.readyState == 4 && this.status == 200) { // check if the response was successfull 
-                        section_div.innerHTML = this.responseText;
-                    }
-                };
-                xhttp.open("GET", `/mini_api/${id}`, true);
-                xhttp.send();
-            }
-        </script>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">With Mini</button>
+    <div class="dropdown-content">
+      <!-- when you click on a car, it will get the info for that car -->
+      {% for mini in minis %}
+      <a onclick="compareMini({{ mini.Car_ID }}, 2)">{{ mini.CarType }}</a>
+      {% endfor %}
     </div>
-</body>
+  </div>
+</div>
 
-</html>
+<!-- Shows info about the mini they choose -->
+<div class="content">
+  <div id="section-1"></div>
+  <div id="section-2"></div>
+</div>
+
+{% endblock main %}
+
+{% block script %}
+{{ super() }}
+<script>
+  function compareMini(id, section) {
+    var section_div = document.querySelector(`#section-${section}`);
+    var xhttp = new XMLHttpRequest(); // new xmlrequest object
+    xhttp.onreadystatechange = function() {
+      // function for when the url responds
+      if (this.readyState == 4 && this.status == 200) {
+        // check if the response was successfull
+        section_div.innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", `/mini_api/${id}`, true);
+    xhttp.send();
+  }
+</script>
+{% endblock script %}
