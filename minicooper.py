@@ -43,7 +43,7 @@ class Order(db.Model):   # This is the Order model it represents the Order table
         'Customer', primaryjoin='Order.Customer_ID == Customer.Customer_ID', backref='orders')
 
 
-class Bmw(db.Model):
+class Bmw(db.Model):   # This is the BMW model it represents the BMW table in the database
     __tablename__ = 'Bmw'
 
     carID = db.Column(db.Integer, primary_key=True)
@@ -53,7 +53,7 @@ class Bmw(db.Model):
     power = db.Column(db.Text)
     topSpeed = db.Column(db.Text)
 
-class Comment(db.Model):
+class Comment(db.Model):    # This is the comments model it represents the comments table in the database
     __tablename__ = 'comments'
 
     commentID = db.Column('Comment_ID', db.Integer, primary_key=True)

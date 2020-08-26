@@ -1,20 +1,27 @@
 <!-- layout includes topnav bar, dark mode
       and anything else all pages need -->
-{% extends 'layout.html' %} 
+{% extends 'layout.html' %}
 
 <!-- shows what is only on this page -->
 {% block main %}
-<h1>Home Page</h1>
+<!-- Writing on the home page -->
+<h1>Minis and BMWs</h1>
 <h3>The ONLY correct opinion:</h3>
 <p>
   Minis are the best cars in the world.
-  <br />Everyone should buy a mini. <br />BMWs are just a different version of
-  minis. <br />I have looked at BMWs and have decided that it doesn't look as
-  nice as minis. <br />Minis are better. <br />Nobody can tell me different.
+  Everyone should buy a mini. BMWs are just a different version of
+  minis. I have looked at BMWs and have decided that It doesn't look as
+  nice as minis. Minis are better. Nobody can tell me different.
 </p>
+
+<div class="center-text">
+  <h3>Press the buttons and choose a car on each button to look at the info</h3>
+</div>
+
 <div class="dropdown-group">
+  <!-- dropdown menu to chose car to see info -->
   <div class="dropdown">
-    <button class="dropbtn">Compare Mini</button>
+    <button class="dropbtn">Mini</button>
     <div class="dropdown-content">
       <!-- when you click on a car, it will get the info for that car -->
       {% for mini in minis %}
@@ -23,7 +30,8 @@
     </div>
   </div>
   <div class="dropdown">
-    <button class="dropbtn">Compare BMW</button>
+    <!-- dropdown menu to chose car to see info -->
+    <button class="dropbtn">BMW</button>
     <div class="dropdown-content">
       <!-- when you click on a car, it will get the info for that car -->
       {% for bmw in bmws %}
@@ -32,12 +40,13 @@
     </div>
   </div>
 </div>
+
 <!-- Shows info about the car they choose -->
 <div class="content">
   <div id="section-1"></div>
   <div id="section-2"></div>
 </div>
-{% endblock main %} 
+{% endblock main %}
 
 <!-- anything in javascript on this page -->
 {% block script %}

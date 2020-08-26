@@ -4,12 +4,15 @@
 
 <!-- shows what is only on this page -->
 {% block main %}
-<h1>BMWs Page</h1>
-<h3>Press the buttons and choose a car on each button to compare them</h3>
+<h1>BMWs</h1>
+<p>BMWs are ok. They aren't as cool as Minis... Sorry Not Sorry :)</p>
+<div class="center-text">
+  <h3>Press the buttons and choose a car on each button to look at the info</h3>
+</div>
 <!-- dropdown for cars -->
 <div class="dropdown-group">
   <div class="dropdown">
-    <button class="dropbtn">Compare BMW</button>
+    <button class="dropbtn">BMW</button>
     <div class="dropdown-content">
       <!-- when you click on a car, it will get the info for that car -->
       {% for bmw in bmws %}
@@ -18,8 +21,8 @@
       {% endfor %}
     </div>
   </div>
-  <div class="dropdown">
-    <button class="dropbtn">With BWM</button>
+  <div class="dropdown">  <!-- this is also a dropdown menu to see info on BMWs -->
+    <button class="dropbtn">BWM</button>
     <div class="dropdown-content">
       <!-- when you click on a car, it will get the info for that car -->
       {% for bmw in bmws %}

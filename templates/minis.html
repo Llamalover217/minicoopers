@@ -4,14 +4,20 @@
 
 <!-- shows what is only on this page -->
 {% block main %}
+<h1>Minis</h1>
+<p>
+  Minis are the best car. They look nice. They aren't too big.
+  <br />Yellow Minis are the best of all the colours. They need to make more Yellow Minis.
+</p>
 <!-- This is where the rest of the page starts -->
-<h1>Minis Page</h1>
-<h3>Press the buttons and choose a car on each button to compare them</h3>
+<div class="center-text">
+  <h3>Press the buttons and choose a car on each button to look at the info</h3>
+</div>
 
 <!-- This is the dropdown menu with all the different minis -->
 <div class="dropdown-group">
   <div class="dropdown">
-    <button class="dropbtn">Compare Mini</button>
+    <button class="dropbtn">Mini</button>
     <div class="dropdown-content">
       <!-- when you click on a car, it will get the info for that car -->
       {% for mini in minis %}
@@ -20,8 +26,8 @@
       {% endfor %}
     </div>
   </div>
-  <div class="dropdown">
-    <button class="dropbtn">With Mini</button>
+  <div class="dropdown">  <!-- this is also a dropdown menu to get info about minis -->
+    <button class="dropbtn">Mini</button>
     <div class="dropdown-content">
       <!-- when you click on a car, it will get the info for that car -->
       {% for mini in minis %}

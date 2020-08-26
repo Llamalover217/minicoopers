@@ -4,15 +4,16 @@
 
 <!-- shows what is only on this page -->
 {% block main %} 
+<h1>Feedback</h1>
 <!-- comment section -->
-<form method="POST">
+<form method="POST" autocomplete="off">
   <label for="fname">First name:</label>
   <input type="text" id="fname" name="fname"><br><br>
   <label for="comment">Comments:</label>
   <input type="text" id="comment" name="comment"><br><br>
   <input type="submit" value="Submit">
 </form>
-</div>
+
 <!-- shows comments -->
 <h2>Comments:</h2>
 {% for comment in feedback %}
