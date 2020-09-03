@@ -34,14 +34,17 @@ body {
 
 h1 {
   font-family: Simplifica, "Bebas Neue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: bold !important;
 }
 
 h2 {
   font-family: Simplifica, "Bebas Neue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: bold !important;
 }
 
 h3 {
   font-family: Simplifica, "Bebas Neue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: bold !important;
 }
 
 .center-text {
