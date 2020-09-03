@@ -9,7 +9,7 @@ body {
 body.dark-theme {
   /* main colours for dark theme */
   --bg-main: rgb(34, 34, 34);
-  --bg-nav: rgb(26, 26, 26);
+  --bg-nav: rgb(59, 59, 59);
   --text-col: white;
   --bg-secondary: rgb(141, 49, 49);
 }
