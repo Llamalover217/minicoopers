@@ -33,7 +33,15 @@ body {
 }
 
 h1 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Simplifica, "Bebas Neue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+h2 {
+  font-family: Simplifica, "Bebas Neue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+h3 {
+  font-family: Simplifica, "Bebas Neue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 .center-text {
